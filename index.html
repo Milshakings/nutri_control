@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#0F172A" />
+  <meta name="theme-color" content="#F97316" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="NutriControl" />
   <title>NutriControl Diario · Modo Fit</title>
+  <link rel="manifest" href="/manifest.json" />
 
   <!-- Google Fonts: Modo Fit (Barlow Condensed + Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -94,7 +95,7 @@
       --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -153,14 +154,14 @@
 
     .topbar-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 
-    select, input, button, textarea { font-family: inherit; font-size: 0.85rem; }
+    select, input, button, textarea { font-family: inherit; font-size: 0.88rem; }
 
     .theme-select {
       background: var(--bg-card-alt);
       color: var(--text-main);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 6px 8px;
+      padding: 7px 9px;
       font-weight: 600;
       cursor: pointer;
     }
@@ -169,13 +170,15 @@
       border: 1px solid var(--border);
       background: var(--bg-card-alt);
       color: var(--text-main);
-      padding: 6px 11px;
+      padding: 8px 12px;
       border-radius: 8px;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 5px;
+      min-height: 36px;
       transition: transform 0.1s ease;
     }
     .btn:active { transform: scale(0.97); }
@@ -185,13 +188,13 @@
       border: none;
       font-weight: 700;
     }
-    .btn-sm { padding: 4px 8px; font-size: 0.76rem; border-radius: 6px; }
+    .btn-sm { padding: 5px 9px; font-size: 0.78rem; border-radius: 6px; min-height: 32px; }
     .btn-danger { color: #F87171; border-color: rgba(239, 68, 68, 0.35); }
 
     .sync-pill {
       font-size: 0.74rem;
       font-weight: 700;
-      padding: 5px 9px;
+      padding: 6px 10px;
       border-radius: 999px;
       background: var(--bg-card-alt);
       border: 1px solid var(--border);
@@ -225,12 +228,13 @@
       background: transparent;
       border: none;
       color: var(--text-muted);
-      padding: 9px 6px;
+      padding: 10px 6px;
       border-radius: 8px;
       font-weight: 700;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       cursor: pointer;
       text-align: center;
+      min-height: 40px;
     }
     .tab-btn.active {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
@@ -284,7 +288,7 @@
       color: var(--text-main);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 6px 10px;
+      padding: 7px 10px;
       font-weight: 700;
     }
 
@@ -394,7 +398,7 @@
       justify-content: space-between;
     }
 
-    .vit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 8px; }
+    .vit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
 
     .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
     .field { display: flex; flex-direction: column; gap: 3px; }
@@ -404,9 +408,10 @@
       color: var(--text-main);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 7px 9px;
+      padding: 8px 10px;
       font-weight: 600;
       width: 100%;
+      min-height: 38px;
     }
 
     .quick-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
@@ -436,16 +441,16 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 8px;
+      padding: 9px;
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
     }
 
     .food-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; }
-    .food-name { font-weight: 700; font-size: 0.88rem; }
-    .food-meta { font-size: 0.75rem; color: var(--text-muted); }
-    .food-actions { display: flex; flex-wrap: wrap; gap: 4px; }
+    .food-name { font-weight: 700; font-size: 0.9rem; }
+    .food-meta { font-size: 0.76rem; color: var(--text-muted); }
+    .food-actions { display: flex; flex-wrap: wrap; gap: 5px; }
 
     .table-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
@@ -526,32 +531,32 @@
           <span id="syncText">Modo local</span>
         </span>
 
-        <button id="btnFirebaseAuth" class="btn btn-primary btn-sm">☁️ Conectar Google</button>
-        <button id="btnInstallPwa" class="btn btn-sm" style="display:none;">📲 Instalar App</button>
+        <button id="btnFirebaseAuth" class="btn btn-primary btn-sm" type="button">☁️ Conectar Google</button>
+        <button id="btnInstallPwa" class="btn btn-sm" type="button" style="display:none;">📲 Instalar App</button>
       </div>
     </div>
   </header>
 
   <main class="container">
     <nav class="nav-tabs">
-      <button class="tab-btn active" data-tab="tab-diario">🍽️ Registro Diario</button>
-      <button class="tab-btn" data-tab="tab-graficos">📊 Gráficos y Metas</button>
-      <button class="tab-btn" data-tab="tab-calculadora">🧮 Calculadora Fit</button>
-      <button class="tab-btn" data-tab="tab-historial">📅 Historial & Nube</button>
+      <button class="tab-btn active" type="button" data-tab="tab-diario">🍽️ Registro Diario</button>
+      <button class="tab-btn" type="button" data-tab="tab-graficos">📊 Gráficos y Metas</button>
+      <button class="tab-btn" type="button" data-tab="tab-calculadora">🧮 Calculadora Fit</button>
+      <button class="tab-btn" type="button" data-tab="tab-historial">📅 Historial & Nube</button>
     </nav>
 
     <section id="tab-diario" class="tab-panel active">
       <div class="date-bar">
         <div class="date-controls">
-          <button class="btn btn-sm" id="btnPrevDay">◀ Anterior</button>
+          <button class="btn btn-sm" type="button" id="btnPrevDay">◀ Anterior</button>
           <input type="date" id="activeDateInput" class="date-input" />
-          <button class="btn btn-sm" id="btnNextDay">Siguiente ▶</button>
-          <button class="btn btn-primary btn-sm" id="btnToday">Hoy</button>
+          <button class="btn btn-sm" type="button" id="btnNextDay">Siguiente ▶</button>
+          <button class="btn btn-primary btn-sm" type="button" id="btnToday">Hoy</button>
         </div>
         <div class="date-controls">
           <span id="humanDateLabel" style="font-weight:700; font-size:0.85rem; color:var(--accent-2);"></span>
-          <button class="btn btn-sm" id="btnCopyDayMenu">📋 Copiar día</button>
-          <button class="btn btn-sm" id="btnPasteDayMenu">📥 Pegar día</button>
+          <button class="btn btn-sm" type="button" id="btnCopyDayMenu">📋 Copiar día</button>
+          <button class="btn btn-sm" type="button" id="btnPasteDayMenu">📥 Pegar día</button>
         </div>
       </div>
 
@@ -624,7 +629,7 @@
       <div class="card">
         <div class="card-header">
           <h2 class="card-title">➕ Agregar Alimento al Menú</h2>
-          <button class="btn btn-sm" id="btnManageSaved">📦 Mis alimentos guardados (<span id="savedCount">0</span>)</button>
+          <button class="btn btn-sm" type="button" id="btnManageSaved">📦 Mis alimentos guardados (<span id="savedCount">0</span>)</button>
         </div>
 
         <div class="quick-pills">
@@ -652,23 +657,23 @@
             </div>
             <div class="field">
               <label>Gramos Totales (g)</label>
-              <input type="number" id="foodGrams" step="0.1" min="0.1" placeholder="100" required />
+              <input type="number" inputmode="decimal" id="foodGrams" step="0.1" min="0.1" placeholder="100" required />
             </div>
             <div class="field">
               <label>Proteínas (g)</label>
-              <input type="number" id="foodProt" step="0.1" min="0" placeholder="0" required />
+              <input type="number" inputmode="decimal" id="foodProt" step="0.1" min="0" placeholder="0" required />
             </div>
             <div class="field">
               <label>Grasas (g)</label>
-              <input type="number" id="foodFat" step="0.1" min="0" placeholder="0" required />
+              <input type="number" inputmode="decimal" id="foodFat" step="0.1" min="0" placeholder="0" required />
             </div>
             <div class="field">
               <label>Carbohidratos (g)</label>
-              <input type="number" id="foodCarb" step="0.1" min="0" placeholder="0" required />
+              <input type="number" inputmode="decimal" id="foodCarb" step="0.1" min="0" placeholder="0" required />
             </div>
             <div class="field">
               <label>Calorías (opcional)</label>
-              <input type="number" id="foodKcal" step="1" min="0" placeholder="Auto (4-9-4)" />
+              <input type="number" inputmode="numeric" id="foodKcal" step="1" min="0" placeholder="Auto (4-9-4)" />
             </div>
           </div>
 
@@ -677,12 +682,12 @@
               + Agregar Vitaminas de esta porción (A, Complejo B, C, D, E, K)
             </summary>
             <div class="form-grid" style="margin-top:8px;">
-              <div class="field"><label>Vit. A (mcg / IDR 900)</label><input type="number" id="vitA" step="0.1" min="0" placeholder="0" /></div>
-              <div class="field"><label>Complejo B (% IDR)</label><input type="number" id="vitB" step="0.1" min="0" placeholder="0" /></div>
-              <div class="field"><label>Vit. C (mg / IDR 90)</label><input type="number" id="vitC" step="0.1" min="0" placeholder="0" /></div>
-              <div class="field"><label>Vit. D (mcg / IDR 15)</label><input type="number" id="vitD" step="0.1" min="0" placeholder="0" /></div>
-              <div class="field"><label>Vit. E (mg / IDR 15)</label><input type="number" id="vitE" step="0.1" min="0" placeholder="0" /></div>
-              <div class="field"><label>Vit. K (mcg / IDR 120)</label><input type="number" id="vitK" step="0.1" min="0" placeholder="0" /></div>
+              <div class="field"><label>Vit. A (mcg / IDR 900)</label><input type="number" inputmode="decimal" id="vitA" step="0.1" min="0" placeholder="0" /></div>
+              <div class="field"><label>Complejo B (% IDR)</label><input type="number" inputmode="decimal" id="vitB" step="0.1" min="0" placeholder="0" /></div>
+              <div class="field"><label>Vit. C (mg / IDR 90)</label><input type="number" inputmode="decimal" id="vitC" step="0.1" min="0" placeholder="0" /></div>
+              <div class="field"><label>Vit. D (mcg / IDR 15)</label><input type="number" inputmode="decimal" id="vitD" step="0.1" min="0" placeholder="0" /></div>
+              <div class="field"><label>Vit. E (mg / IDR 15)</label><input type="number" inputmode="decimal" id="vitE" step="0.1" min="0" placeholder="0" /></div>
+              <div class="field"><label>Vit. K (mcg / IDR 120)</label><input type="number" inputmode="decimal" id="vitK" step="0.1" min="0" placeholder="0" /></div>
             </div>
           </details>
 
@@ -738,9 +743,9 @@
               <option value="female">Mujer</option>
             </select>
           </div>
-          <div class="field"><label>Edad (años)</label><input type="number" id="calcAge" value="39" min="15" max="95" /></div>
-          <div class="field"><label>Peso (kg)</label><input type="number" id="calcWeight" value="80" step="0.1" min="35" max="250" /></div>
-          <div class="field"><label>Altura (cm)</label><input type="number" id="calcHeight" value="179" min="120" max="230" /></div>
+          <div class="field"><label>Edad (años)</label><input type="number" inputmode="numeric" id="calcAge" value="39" min="15" max="95" /></div>
+          <div class="field"><label>Peso (kg)</label><input type="number" inputmode="decimal" id="calcWeight" value="80" step="0.1" min="35" max="250" /></div>
+          <div class="field"><label>Altura (cm)</label><input type="number" inputmode="numeric" id="calcHeight" value="179" min="120" max="230" /></div>
           <div class="field">
             <label>Actividad Física</label>
             <select id="calcActivity">
@@ -758,8 +763,8 @@
               <option value="bulk">Ganancia muscular (+12%)</option>
             </select>
           </div>
-          <div class="field"><label>Proteína (g/kg)</label><input type="number" id="calcProtKg" value="1.8" step="0.1" min="1.0" max="3.0" /></div>
-          <div class="field"><label>Grasas (g/kg)</label><input type="number" id="calcFatKg" value="0.9" step="0.1" min="0.4" max="1.6" /></div>
+          <div class="field"><label>Proteína (g/kg)</label><input type="number" inputmode="decimal" id="calcProtKg" value="1.8" step="0.1" min="1.0" max="3.0" /></div>
+          <div class="field"><label>Grasas (g/kg)</label><input type="number" inputmode="decimal" id="calcFatKg" value="0.9" step="0.1" min="0.4" max="1.6" /></div>
         </div>
 
         <div style="margin-top:14px; padding:12px; background:var(--bg-card-alt); border-radius:10px; border:1px solid var(--border); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px;">
@@ -774,10 +779,10 @@
       <div class="card">
         <div class="card-header"><h2 class="card-title">🎯 Ajuste Manual Directo de Metas</h2></div>
         <div class="form-grid">
-          <div class="field"><label>Meta Calorías (kcal)</label><input type="number" id="manualKcal" /></div>
-          <div class="field"><label>Meta Proteínas (g)</label><input type="number" id="manualProt" /></div>
-          <div class="field"><label>Meta Grasas (g)</label><input type="number" id="manualFat" /></div>
-          <div class="field"><label>Meta Carbohidratos (g)</label><input type="number" id="manualCarb" /></div>
+          <div class="field"><label>Meta Calorías (kcal)</label><input type="number" inputmode="numeric" id="manualKcal" /></div>
+          <div class="field"><label>Meta Proteínas (g)</label><input type="number" inputmode="numeric" id="manualProt" /></div>
+          <div class="field"><label>Meta Grasas (g)</label><input type="number" inputmode="numeric" id="manualFat" /></div>
+          <div class="field"><label>Meta Carbohidratos (g)</label><input type="number" inputmode="numeric" id="manualCarb" /></div>
         </div>
         <div style="margin-top:10px; text-align:right;">
           <button class="btn btn-primary" type="button" id="btnSaveManualGoals">💾 Guardar metas manuales</button>
@@ -831,19 +836,19 @@
       <input type="hidden" id="editFoodIndex" />
       <div class="form-grid">
         <div class="field" style="grid-column: span 2;"><label>Nombre</label><input type="text" id="editName" /></div>
-        <div class="field"><label>Gramos (g)</label><input type="number" id="editGrams" step="0.1" min="0.1" /></div>
-        <div class="field"><label>Calorías (kcal)</label><input type="number" id="editKcal" step="1" min="0" /></div>
-        <div class="field"><label>Proteínas (g)</label><input type="number" id="editProt" step="0.1" min="0" /></div>
-        <div class="field"><label>Grasas (g)</label><input type="number" id="editFat" step="0.1" min="0" /></div>
-        <div class="field"><label>Carbohidratos (g)</label><input type="number" id="editCarb" step="0.1" min="0" /></div>
+        <div class="field"><label>Gramos (g)</label><input type="number" inputmode="decimal" id="editGrams" step="0.1" min="0.1" /></div>
+        <div class="field"><label>Calorías (kcal)</label><input type="number" inputmode="numeric" id="editKcal" step="1" min="0" /></div>
+        <div class="field"><label>Proteínas (g)</label><input type="number" inputmode="decimal" id="editProt" step="0.1" min="0" /></div>
+        <div class="field"><label>Grasas (g)</label><input type="number" inputmode="decimal" id="editFat" step="0.1" min="0" /></div>
+        <div class="field"><label>Carbohidratos (g)</label><input type="number" inputmode="decimal" id="editCarb" step="0.1" min="0" /></div>
       </div>
       <div class="form-grid">
-        <div class="field"><label>Vit A (mcg)</label><input type="number" id="editVitA" step="0.1" /></div>
-        <div class="field"><label>Comp B (%)</label><input type="number" id="editVitB" step="0.1" /></div>
-        <div class="field"><label>Vit C (mg)</label><input type="number" id="editVitC" step="0.1" /></div>
-        <div class="field"><label>Vit D (mcg)</label><input type="number" id="editVitD" step="0.1" /></div>
-        <div class="field"><label>Vit E (mg)</label><input type="number" id="editVitE" step="0.1" /></div>
-        <div class="field"><label>Vit K (mcg)</label><input type="number" id="editVitK" step="0.1" /></div>
+        <div class="field"><label>Vit A (mcg)</label><input type="number" inputmode="decimal" id="editVitA" step="0.1" /></div>
+        <div class="field"><label>Comp B (%)</label><input type="number" inputmode="decimal" id="editVitB" step="0.1" /></div>
+        <div class="field"><label>Vit C (mg)</label><input type="number" inputmode="decimal" id="editVitC" step="0.1" /></div>
+        <div class="field"><label>Vit D (mcg)</label><input type="number" inputmode="decimal" id="editVitD" step="0.1" /></div>
+        <div class="field"><label>Vit E (mg)</label><input type="number" inputmode="decimal" id="editVitE" step="0.1" /></div>
+        <div class="field"><label>Vit K (mcg)</label><input type="number" inputmode="decimal" id="editVitK" step="0.1" /></div>
       </div>
       <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:6px;">
         <button class="btn" type="button" onclick="closeModal('editFoodModal')">Cancelar</button>
@@ -882,7 +887,7 @@
   <div id="toast" class="toast"></div>
 
   <!-- ======================================================================
-       SCRIPT PRINCIPAL AISLADO (NUNCA SE BLOQUEA POR FIREBASE)
+       SCRIPT PRINCIPAL AISLADO + REGISTRO SERVICE WORKER PWA
        ====================================================================== -->
   <script>
     (function () {
@@ -1550,13 +1555,24 @@
       recalcFitGoals();
       setActiveDate(window.AppStore.activeDate);
 
+      // Registro de Service Worker estático para instalación PWA en Android
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/sw.js").catch(() => {});
+        });
+      }
+
       let deferredPrompt = null;
       window.addEventListener("beforeinstallprompt", (e) => {
         e.preventDefault();
         deferredPrompt = e;
         const b = document.getElementById("btnInstallPwa");
         b.style.display = "inline-flex";
-        b.onclick = async () => { deferredPrompt.prompt(); await deferredPrompt.userChoice; b.style.display = "none"; };
+        b.onclick = async () => {
+          deferredPrompt.prompt();
+          await deferredPrompt.userChoice;
+          b.style.display = "none";
+        };
       });
     })();
   </script>
