@@ -18,9 +18,6 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 
   <style>
-    /* ==========================================================================
-       TEMAS MODO FIT (NARANJOS, AMARILLOS Y CONTRASTES ATLÉTICOS)
-       ========================================================================== */
     :root, [data-theme="citrus-dark"] {
       --bg-app: #0B1120;
       --bg-card: #131C31;
@@ -36,7 +33,6 @@
       --fat-color: #FBBF24;
       --carb-color: #FB923C;
       --vit-color: #A855F7;
-      --ok-color: #38BDF8;
       --over-color: #EF4444;
       --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.45);
     }
@@ -56,7 +52,6 @@
       --fat-color: #FACC15;
       --carb-color: #FB923C;
       --vit-color: #C084FC;
-      --ok-color: #38BDF8;
       --over-color: #F43F5E;
       --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
     }
@@ -76,7 +71,6 @@
       --fat-color: #D97706;
       --carb-color: #EA580C;
       --vit-color: #7C3AED;
-      --ok-color: #0284C7;
       --over-color: #DC2626;
       --shadow: 0 6px 20px -4px rgba(15, 23, 42, 0.08);
     }
@@ -96,7 +90,6 @@
       --fat-color: #FBBF24;
       --carb-color: #FF7847;
       --vit-color: #E879F9;
-      --ok-color: #38BDF8;
       --over-color: #F43F5E;
       --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
     }
@@ -113,12 +106,6 @@
       transition: background 0.2s ease, color 0.2s ease;
     }
 
-    .font-fit {
-      font-family: 'Barlow Condensed', 'Inter', sans-serif;
-      letter-spacing: 0.02em;
-    }
-
-    /* TOPBAR */
     .topbar {
       position: sticky;
       top: 0;
@@ -139,11 +126,7 @@
       gap: 8px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .brand { display: flex; align-items: center; gap: 10px; }
 
     .brand-badge {
       width: 38px;
@@ -166,24 +149,11 @@
       line-height: 1;
     }
 
-    .brand small {
-      display: block;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
+    .brand small { display: block; font-size: 0.72rem; color: var(--text-muted); font-weight: 600; }
 
-    .topbar-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 6px;
-    }
+    .topbar-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 
-    select, input, button {
-      font-family: inherit;
-      font-size: 0.85rem;
-    }
+    select, input, button, textarea { font-family: inherit; font-size: 0.85rem; }
 
     .theme-select {
       background: var(--bg-card-alt);
@@ -206,7 +176,7 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      transition: transform 0.1s ease, opacity 0.15s ease;
+      transition: transform 0.1s ease;
     }
     .btn:active { transform: scale(0.97); }
     .btn-primary {
@@ -229,15 +199,9 @@
       align-items: center;
       gap: 5px;
     }
-    .sync-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #94A3B8;
-    }
+    .sync-dot { width: 8px; height: 8px; border-radius: 50%; background: #94A3B8; }
     .sync-dot.online { background: #F59E0B; box-shadow: 0 0 8px #F59E0B; }
 
-    /* CONTAINER & NAV TABS */
     .container {
       max-width: 1080px;
       margin: 14px auto;
@@ -276,7 +240,6 @@
     .tab-panel { display: none; flex-direction: column; gap: 14px; }
     .tab-panel.active { display: flex; }
 
-    /* CARDS */
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -302,7 +265,6 @@
       letter-spacing: 0.03em;
     }
 
-    /* DATE BAR */
     .date-bar {
       display: flex;
       flex-wrap: wrap;
@@ -315,12 +277,7 @@
       padding: 10px 12px;
     }
 
-    .date-controls {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
+    .date-controls { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 
     .date-input {
       background: var(--bg-input);
@@ -331,7 +288,6 @@
       font-weight: 700;
     }
 
-    /* HERO CALORIE BAR (GRANDE Y NOTORIA) */
     .hero-kcal {
       background: linear-gradient(145deg, var(--bg-card), var(--bg-card-alt));
       border: 2px solid var(--accent);
@@ -349,11 +305,7 @@
       margin-bottom: 10px;
     }
 
-    .hero-kcal-numbers {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-    }
+    .hero-kcal-numbers { display: flex; align-items: baseline; gap: 8px; }
 
     .hero-kcal-big {
       font-family: 'Barlow Condensed', sans-serif;
@@ -363,11 +315,7 @@
       color: var(--accent);
     }
 
-    .hero-kcal-goal {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--text-muted);
-    }
+    .hero-kcal-goal { font-size: 1.05rem; font-weight: 700; color: var(--text-muted); }
 
     .hero-pct {
       font-family: 'Barlow Condensed', sans-serif;
@@ -391,12 +339,9 @@
       width: 0%;
       border-radius: 999px;
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      transition: width 0.3s ease, background 0.3s ease;
+      transition: width 0.3s ease;
     }
-
-    .hero-fill.over {
-      background: linear-gradient(90deg, #EF4444, #DC2626);
-    }
+    .hero-fill.over { background: linear-gradient(90deg, #EF4444, #DC2626); }
 
     .hero-status-box {
       margin-top: 12px;
@@ -412,13 +357,8 @@
       font-weight: 700;
       font-size: 0.98rem;
     }
+    .hero-status-box.over { border-left-color: var(--over-color); color: #FCA5A5; }
 
-    .hero-status-box.over {
-      border-left-color: var(--over-color);
-      color: #FCA5A5;
-    }
-
-    /* MACRO & VITAMIN BARS */
     .macros-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -442,19 +382,8 @@
       margin-bottom: 5px;
     }
 
-    .bar-track {
-      height: 11px;
-      background: var(--bg-input);
-      border-radius: 999px;
-      overflow: hidden;
-    }
-
-    .bar-fill {
-      height: 100%;
-      width: 0%;
-      border-radius: 999px;
-      transition: width 0.25s ease;
-    }
+    .bar-track { height: 11px; background: var(--bg-input); border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; width: 0%; border-radius: 999px; transition: width 0.25s ease; }
 
     .bar-foot {
       margin-top: 5px;
@@ -465,32 +394,11 @@
       justify-content: space-between;
     }
 
-    .vit-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
-      gap: 8px;
-    }
+    .vit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 8px; }
 
-    /* FORM GRID */
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 8px;
-    }
-
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .field label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
+    .field { display: flex; flex-direction: column; gap: 3px; }
+    .field label { font-size: 0.72rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
     .field input, .field select {
       background: var(--bg-input);
       color: var(--text-main);
@@ -501,19 +409,9 @@
       width: 100%;
     }
 
-    .quick-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
+    .quick-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
 
-    /* MEAL SECTIONS */
-    .meals-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 12px;
-    }
+    .meals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 12px; }
 
     .meal-box {
       background: var(--bg-card-alt);
@@ -544,41 +442,16 @@
       gap: 5px;
     }
 
-    .food-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 6px;
-    }
-
+    .food-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 6px; }
     .food-name { font-weight: 700; font-size: 0.88rem; }
     .food-meta { font-size: 0.75rem; color: var(--text-muted); }
+    .food-actions { display: flex; flex-wrap: wrap; gap: 4px; }
 
-    .food-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    /* TABLES */
     .table-wrap { overflow-x: auto; }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.82rem;
-    }
-    th, td {
-      padding: 8px;
-      border-bottom: 1px solid var(--border);
-      text-align: left;
-    }
-    th {
-      color: var(--text-muted);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    th, td { padding: 8px; border-bottom: 1px solid var(--border); text-align: left; }
+    th { color: var(--text-muted); font-size: 0.72rem; text-transform: uppercase; }
 
-    /* MODAL */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -620,11 +493,7 @@
     }
     .toast.show { opacity: 1; }
 
-    .chart-box {
-      position: relative;
-      height: 260px;
-      width: 100%;
-    }
+    .chart-box { position: relative; height: 260px; width: 100%; }
 
     @media (max-width: 600px) {
       .hero-kcal-big { font-size: 2.5rem; }
@@ -634,7 +503,6 @@
 </head>
 <body>
 
-  <!-- TOPBAR -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
@@ -665,7 +533,6 @@
   </header>
 
   <main class="container">
-    <!-- NAVEGACIÓN PRINCIPAL -->
     <nav class="nav-tabs">
       <button class="tab-btn active" data-tab="tab-diario">🍽️ Registro Diario</button>
       <button class="tab-btn" data-tab="tab-graficos">📊 Gráficos y Metas</button>
@@ -673,11 +540,7 @@
       <button class="tab-btn" data-tab="tab-historial">📅 Historial & Nube</button>
     </nav>
 
-    <!-- ======================================================================
-         TAB 1: REGISTRO DIARIO
-         ====================================================================== -->
     <section id="tab-diario" class="tab-panel active">
-      <!-- Navegador de fecha -->
       <div class="date-bar">
         <div class="date-controls">
           <button class="btn btn-sm" id="btnPrevDay">◀ Anterior</button>
@@ -687,12 +550,11 @@
         </div>
         <div class="date-controls">
           <span id="humanDateLabel" style="font-weight:700; font-size:0.85rem; color:var(--accent-2);"></span>
-          <button class="btn btn-sm" id="btnCopyDayMenu" title="Copiar todo el menú de este día">📋 Copiar día</button>
-          <button class="btn btn-sm" id="btnPasteDayMenu" title="Pegar menú copiado en este día">📥 Pegar día</button>
+          <button class="btn btn-sm" id="btnCopyDayMenu">📋 Copiar día</button>
+          <button class="btn btn-sm" id="btnPasteDayMenu">📥 Pegar día</button>
         </div>
       </div>
 
-      <!-- BARRA PRINCIPAL DE CALORÍAS GRANDE Y NOTORIA -->
       <div class="hero-kcal">
         <div class="hero-kcal-top">
           <div>
@@ -721,7 +583,6 @@
           <span id="heroMacroSummary" style="font-size:0.8rem; color:var(--text-muted);">P: 0g · G: 0g · C: 0g</span>
         </div>
 
-        <!-- Barras de Macronutrientes -->
         <div class="macros-grid">
           <div class="bar-card">
             <div class="bar-head">
@@ -752,7 +613,6 @@
         </div>
       </div>
 
-      <!-- VITAMINAS ESENCIALES A, B, C, D, E, K VS IDR -->
       <div class="card">
         <div class="card-header">
           <h2 class="card-title">🧬 Vitaminas Esenciales vs. Dosis Recomendada (IDR)</h2>
@@ -761,19 +621,17 @@
         <div class="vit-grid" id="vitaminsBarsGrid"></div>
       </div>
 
-      <!-- AGREGAR ALIMENTO AL MENÚ -->
       <div class="card">
         <div class="card-header">
           <h2 class="card-title">➕ Agregar Alimento al Menú</h2>
           <button class="btn btn-sm" id="btnManageSaved">📦 Mis alimentos guardados (<span id="savedCount">0</span>)</button>
         </div>
 
-        <!-- Carga rápida -->
         <div class="quick-pills">
-          <button class="btn btn-sm" data-quick="almuerzo-cerdo">🥩 Almuerzo Cerdo + Almendras + Huevo</button>
-          <button class="btn btn-sm" data-quick="huevos-revueltos">🍳 3 Huevos + 2 Rebanadas Pan Integral</button>
-          <button class="btn btn-sm" data-quick="pollo-arroz">🍗 Pechuga Pollo 200g + Arroz 150g + Palta</button>
-          <button class="btn btn-sm" data-quick="batido-avena">🥤 Whey 30g + Avena 60g + Plátano</button>
+          <button class="btn btn-sm" type="button" data-quick="almuerzo-cerdo">🥩 Almuerzo Cerdo + Almendras + Huevo</button>
+          <button class="btn btn-sm" type="button" data-quick="huevos-revueltos">🍳 3 Huevos + 2 Rebanadas Pan Integral</button>
+          <button class="btn btn-sm" type="button" data-quick="pollo-arroz">🍗 Pechuga Pollo 200g + Arroz 150g + Palta</button>
+          <button class="btn btn-sm" type="button" data-quick="batido-avena">🥤 Whey 30g + Avena 60g + Plátano</button>
         </div>
 
         <form id="addFoodForm">
@@ -788,7 +646,7 @@
               </select>
             </div>
             <div class="field" style="grid-column: span 2;">
-              <label>Producto / Alimento (autocompleta guardados)</label>
+              <label>Producto / Alimento</label>
               <input type="text" id="foodName" list="savedFoodsDatalist" placeholder="Ej: Barra cereal, Galletas, Pollo..." required />
               <datalist id="savedFoodsDatalist"></datalist>
             </div>
@@ -831,20 +689,16 @@
           <div style="margin-top:10px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px;">
             <label style="font-size:0.78rem; display:flex; align-items:center; gap:6px; cursor:pointer;">
               <input type="checkbox" id="saveToLibraryCheck" checked />
-              Guardar producto en mi biblioteca (para recalcular solo cambiando gramos)
+              Guardar producto en mi biblioteca (recalcula por gramos)
             </label>
             <button type="submit" class="btn btn-primary">➕ Agregar al menú</button>
           </div>
         </form>
       </div>
 
-      <!-- MENÚ DEL DÍA POR TIEMPOS DE COMIDA -->
       <div class="meals-grid" id="mealsContainer"></div>
     </section>
 
-    <!-- ======================================================================
-         TAB 2: GRÁFICOS Y METAS
-         ====================================================================== -->
     <section id="tab-graficos" class="tab-panel">
       <div class="card">
         <div class="card-header">
@@ -869,14 +723,11 @@
       </div>
     </section>
 
-    <!-- ======================================================================
-         TAB 3: CALCULADORA FIT (MIFFLIN-ST JEOR + G/KG)
-         ====================================================================== -->
     <section id="tab-calculadora" class="tab-panel">
       <div class="card">
         <div class="card-header">
           <h2 class="card-title">🧮 Calculadora Metabólica y Reparto por Peso</h2>
-          <button class="btn btn-sm" id="btnPresetUser">Cargar perfil 39a · 80kg · 179cm</button>
+          <button class="btn btn-sm" type="button" id="btnPresetUser">Cargar perfil 39a · 80kg · 179cm</button>
         </div>
 
         <div class="form-grid">
@@ -887,18 +738,9 @@
               <option value="female">Mujer</option>
             </select>
           </div>
-          <div class="field">
-            <label>Edad (años)</label>
-            <input type="number" id="calcAge" value="39" min="15" max="95" />
-          </div>
-          <div class="field">
-            <label>Peso (kg)</label>
-            <input type="number" id="calcWeight" value="80" step="0.1" min="35" max="250" />
-          </div>
-          <div class="field">
-            <label>Altura (cm)</label>
-            <input type="number" id="calcHeight" value="179" min="120" max="230" />
-          </div>
+          <div class="field"><label>Edad (años)</label><input type="number" id="calcAge" value="39" min="15" max="95" /></div>
+          <div class="field"><label>Peso (kg)</label><input type="number" id="calcWeight" value="80" step="0.1" min="35" max="250" /></div>
+          <div class="field"><label>Altura (cm)</label><input type="number" id="calcHeight" value="179" min="120" max="230" /></div>
           <div class="field">
             <label>Actividad Física</label>
             <select id="calcActivity">
@@ -916,31 +758,21 @@
               <option value="bulk">Ganancia muscular (+12%)</option>
             </select>
           </div>
-          <div class="field">
-            <label>Proteína (g/kg)</label>
-            <input type="number" id="calcProtKg" value="1.8" step="0.1" min="1.0" max="3.0" />
-          </div>
-          <div class="field">
-            <label>Grasas (g/kg)</label>
-            <input type="number" id="calcFatKg" value="0.9" step="0.1" min="0.4" max="1.6" />
-          </div>
+          <div class="field"><label>Proteína (g/kg)</label><input type="number" id="calcProtKg" value="1.8" step="0.1" min="1.0" max="3.0" /></div>
+          <div class="field"><label>Grasas (g/kg)</label><input type="number" id="calcFatKg" value="0.9" step="0.1" min="0.4" max="1.6" /></div>
         </div>
 
         <div style="margin-top:14px; padding:12px; background:var(--bg-card-alt); border-radius:10px; border:1px solid var(--border); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px;">
           <div>
             <div style="font-size:0.78rem; color:var(--text-muted); font-weight:700;">RESULTADO CALCULADO</div>
-            <div id="calcResultText" style="font-size:1.1rem; font-weight:800; color:var(--accent-2);">
-              2.420 kcal · 144g P · 72g G · 299g C
-            </div>
+            <div id="calcResultText" style="font-size:1.1rem; font-weight:800; color:var(--accent-2);">2.420 kcal · 144g P · 72g G · 299g C</div>
           </div>
-          <button class="btn btn-primary" id="btnApplyGoals">✅ Aplicar como mi meta diaria</button>
+          <button class="btn btn-primary" type="button" id="btnApplyGoals">✅ Aplicar como mi meta diaria</button>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-header">
-          <h2 class="card-title">🎯 Ajuste Manual Directo de Metas</h2>
-        </div>
+        <div class="card-header"><h2 class="card-title">🎯 Ajuste Manual Directo de Metas</h2></div>
         <div class="form-grid">
           <div class="field"><label>Meta Calorías (kcal)</label><input type="number" id="manualKcal" /></div>
           <div class="field"><label>Meta Proteínas (g)</label><input type="number" id="manualProt" /></div>
@@ -948,35 +780,28 @@
           <div class="field"><label>Meta Carbohidratos (g)</label><input type="number" id="manualCarb" /></div>
         </div>
         <div style="margin-top:10px; text-align:right;">
-          <button class="btn btn-primary" id="btnSaveManualGoals">💾 Guardar metas manuales</button>
+          <button class="btn btn-primary" type="button" id="btnSaveManualGoals">💾 Guardar metas manuales</button>
         </div>
       </div>
     </section>
 
-    <!-- ======================================================================
-         TAB 4: HISTORIAL & NUBE FIREBASE
-         ====================================================================== -->
     <section id="tab-historial" class="tab-panel">
       <div class="card">
-        <div class="card-header">
-          <h2 class="card-title">☁️ Sincronización Notebook ↔ Celular (Firebase)</h2>
-        </div>
+        <div class="card-header"><h2 class="card-title">☁️ Sincronización Notebook ↔ Celular (Firebase)</h2></div>
         <p style="font-size:0.84rem; color:var(--text-muted); margin-bottom:10px;">
-          Conecta tu proyecto de Firebase una sola vez o pega tu objeto <code>firebaseConfig</code> aquí para sincronizar en tiempo real tus comidas, metas y alimentos guardados entre el notebook y el celular usando tu cuenta de Google.
+          Conecta tu proyecto de Firebase o pega tu <code>firebaseConfig</code> para sincronizar en tiempo real tus datos entre el notebook y el celular con tu cuenta de Google.
         </p>
         <div style="display:flex; flex-wrap:wrap; gap:8px;">
-          <button class="btn btn-primary" id="btnConfigFirebase">⚙️ Configurar / Pegar firebaseConfig</button>
-          <button class="btn" id="btnExportJson">⬇️ Exportar Respaldo JSON</button>
-          <button class="btn" id="btnImportJson">⬆️ Importar JSON</button>
+          <button class="btn btn-primary" type="button" id="btnConfigFirebase">⚙️ Configurar / Pegar firebaseConfig</button>
+          <button class="btn" type="button" id="btnExportJson">⬇️ Exportar Respaldo JSON</button>
+          <button class="btn" type="button" id="btnImportJson">⬆️ Importar JSON</button>
           <input type="file" id="importFileInput" accept=".json" style="display:none;" />
-          <button class="btn" id="btnExportCsv">📊 Exportar Excel (CSV)</button>
+          <button class="btn" type="button" id="btnExportCsv">📊 Exportar Excel (CSV)</button>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-header">
-          <h2 class="card-title">📅 Historial de Días Registrados</h2>
-        </div>
+        <div class="card-header"><h2 class="card-title">📅 Historial de Días Registrados</h2></div>
         <div class="table-wrap">
           <table>
             <thead>
@@ -996,43 +821,21 @@
     </section>
   </main>
 
-  <!-- MODAL EDITAR ALIMENTO (GRAMOS Y DATOS) -->
   <div id="editFoodModal" class="modal-backdrop">
     <div class="modal-box">
       <div class="card-header" style="margin-bottom:0;">
         <h3 class="card-title">✏️ Editar Alimento y Gramos</h3>
-        <button class="btn btn-sm" onclick="closeModal('editFoodModal')">✕</button>
+        <button class="btn btn-sm" type="button" onclick="closeModal('editFoodModal')">✕</button>
       </div>
-      <p style="font-size:0.78rem; color:var(--text-muted);">
-        Si cambias los gramos, los macros y vitaminas se recalculan proporcionalmente de forma automática (puedes ajustarlos manualmente después).
-      </p>
       <input type="hidden" id="editMealKey" />
       <input type="hidden" id="editFoodIndex" />
       <div class="form-grid">
-        <div class="field" style="grid-column: span 2;">
-          <label>Nombre</label>
-          <input type="text" id="editName" />
-        </div>
-        <div class="field">
-          <label>Gramos (g)</label>
-          <input type="number" id="editGrams" step="0.1" min="0.1" />
-        </div>
-        <div class="field">
-          <label>Calorías (kcal)</label>
-          <input type="number" id="editKcal" step="1" min="0" />
-        </div>
-        <div class="field">
-          <label>Proteínas (g)</label>
-          <input type="number" id="editProt" step="0.1" min="0" />
-        </div>
-        <div class="field">
-          <label>Grasas (g)</label>
-          <input type="number" id="editFat" step="0.1" min="0" />
-        </div>
-        <div class="field">
-          <label>Carbohidratos (g)</label>
-          <input type="number" id="editCarb" step="0.1" min="0" />
-        </div>
+        <div class="field" style="grid-column: span 2;"><label>Nombre</label><input type="text" id="editName" /></div>
+        <div class="field"><label>Gramos (g)</label><input type="number" id="editGrams" step="0.1" min="0.1" /></div>
+        <div class="field"><label>Calorías (kcal)</label><input type="number" id="editKcal" step="1" min="0" /></div>
+        <div class="field"><label>Proteínas (g)</label><input type="number" id="editProt" step="0.1" min="0" /></div>
+        <div class="field"><label>Grasas (g)</label><input type="number" id="editFat" step="0.1" min="0" /></div>
+        <div class="field"><label>Carbohidratos (g)</label><input type="number" id="editCarb" step="0.1" min="0" /></div>
       </div>
       <div class="form-grid">
         <div class="field"><label>Vit A (mcg)</label><input type="number" id="editVitA" step="0.1" /></div>
@@ -1043,397 +846,857 @@
         <div class="field"><label>Vit K (mcg)</label><input type="number" id="editVitK" step="0.1" /></div>
       </div>
       <div style="display:flex; justify-content:flex-end; gap:8px; margin-top:6px;">
-        <button class="btn" onclick="closeModal('editFoodModal')">Cancelar</button>
-        <button class="btn btn-primary" id="btnSaveEditedFood">💾 Guardar cambios</button>
+        <button class="btn" type="button" onclick="closeModal('editFoodModal')">Cancelar</button>
+        <button class="btn btn-primary" type="button" id="btnSaveEditedFood">💾 Guardar cambios</button>
       </div>
     </div>
   </div>
 
-  <!-- MODAL BIBLIOTECA DE PRODUCTOS GUARDADOS -->
   <div id="savedFoodsModal" class="modal-backdrop">
     <div class="modal-box">
       <div class="card-header" style="margin-bottom:0;">
         <h3 class="card-title">📦 Mis Productos Guardados (Base 100g)</h3>
-        <button class="btn btn-sm" onclick="closeModal('savedFoodsModal')">✕</button>
+        <button class="btn btn-sm" type="button" onclick="closeModal('savedFoodsModal')">✕</button>
       </div>
       <div id="savedFoodsList" style="display:flex; flex-direction:column; gap:6px;"></div>
     </div>
   </div>
 
-  <!-- MODAL CONFIGURACIÓN FIREBASE -->
   <div id="firebaseModal" class="modal-backdrop">
     <div class="modal-box">
       <div class="card-header" style="margin-bottom:0;">
         <h3 class="card-title">☁️ Conectar Proyecto Firebase</h3>
-        <button class="btn btn-sm" onclick="closeModal('firebaseModal')">✕</button>
+        <button class="btn btn-sm" type="button" onclick="closeModal('firebaseModal')">✕</button>
       </div>
       <p style="font-size:0.8rem; color:var(--text-muted);">
-        Pega aquí tu objeto <code>firebaseConfig</code> en formato JSON o tal como te lo entrega Firebase Console:
+        Pega aquí tu objeto <code>firebaseConfig</code> (JSON o JS):
       </p>
       <textarea id="firebaseConfigInput" rows="7" style="width:100%; background:var(--bg-input); color:var(--text-main); border:1px solid var(--border); border-radius:8px; padding:8px; font-family:monospace; font-size:0.78rem;" placeholder='{"apiKey":"...","authDomain":"...","projectId":"...","storageBucket":"...","messagingSenderId":"...","appId":"..."}'></textarea>
       <div style="display:flex; justify-content:space-between; gap:8px;">
-        <button class="btn btn-danger btn-sm" id="btnClearFirebaseConfig">Borrar config</button>
-        <button class="btn btn-primary" id="btnSaveFirebaseConfig">Guardar y Conectar Google</button>
+        <button class="btn btn-danger btn-sm" type="button" id="btnClearFirebaseConfig">Borrar config</button>
+        <button class="btn btn-primary" type="button" id="btnSaveFirebaseConfig">Guardar y Conectar Google</button>
       </div>
     </div>
   </div>
 
   <div id="toast" class="toast"></div>
 
-  <!-- ========================================================================
-       SCRIPT PRINCIPAL + FIREBASE SDK MODULAR
-       ======================================================================== -->
+  <!-- ======================================================================
+       SCRIPT PRINCIPAL AISLADO (NUNCA SE BLOQUEA POR FIREBASE)
+       ====================================================================== -->
+  <script>
+    (function () {
+      const STORAGE_KEY = "nutricontrol_fit_v5";
+      const VITAMIN_META = [
+        { key: "vitA", label: "Vitamina A", unit: "mcg", idr: 900 },
+        { key: "vitB", label: "Complejo B", unit: "%", idr: 100 },
+        { key: "vitC", label: "Vitamina C", unit: "mg", idr: 90 },
+        { key: "vitD", label: "Vitamina D", unit: "mcg", idr: 15 },
+        { key: "vitE", label: "Vitamina E", unit: "mg", idr: 15 },
+        { key: "vitK", label: "Vitamina K", unit: "mcg", idr: 120 }
+      ];
+      const MEAL_NAMES = ["Desayuno", "Almuerzo", "Once / Colación", "Cena"];
+      const QUICK_PRESETS = {
+        "almuerzo-cerdo": { name: "Almuerzo Cerdo 450g + Almendras 100g + Papa + Huevo + Verduras", grams: 849, prot: 131.8, fat: 125.0, carb: 53.4, kcal: 1854, vitA: 245, vitB: 165, vitC: 54, vitD: 2.1, vitE: 26.2, vitK: 78 },
+        "huevos-revueltos": { name: "3 Huevos revueltos + 2 rebanadas pan integral", grams: 220, prot: 25.5, fat: 16.5, carb: 32.0, kcal: 379, vitA: 240, vitB: 45, vitC: 0, vitD: 3.3, vitE: 1.8, vitK: 2 },
+        "pollo-arroz": { name: "Pechuga pollo 200g + Arroz cocido 150g + Palta 50g", grams: 400, prot: 51.0, fat: 11.5, carb: 46.0, kcal: 492, vitA: 22, vitB: 68, vitC: 5, vitD: 0.2, vitE: 1.4, vitK: 11 },
+        "batido-avena": { name: "Proteína Whey 30g + Avena 60g + Plátano 100g", grams: 190, prot: 32.5, fat: 6.2, carb: 62.0, kcal: 434, vitA: 4, vitB: 35, vitC: 9, vitD: 0, vitE: 0.6, vitK: 1 }
+      };
+
+      function todayISO() {
+        const d = new Date();
+        const offset = d.getTimezoneOffset();
+        return new Date(d.getTime() - offset * 60000).toISOString().split("T")[0];
+      }
+
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            const p = JSON.parse(raw);
+            return {
+              theme: p.theme || "citrus-dark",
+              goals: p.goals || { kcal: 2420, prot: 144, fat: 72, carb: 299 },
+              days: p.days || {},
+              savedFoods: p.savedFoods || [],
+              updatedAt: p.updatedAt || 0
+            };
+          }
+        } catch (e) {}
+        return {
+          theme: "citrus-dark",
+          goals: { kcal: 2420, prot: 144, fat: 72, carb: 299 },
+          days: {},
+          savedFoods: [],
+          updatedAt: Date.now()
+        };
+      }
+
+      window.AppStore = {
+        state: loadState(),
+        activeDate: todayISO(),
+        clipboardFood: null,
+        clipboardMeal: null,
+        clipboardDay: null,
+        charts: {},
+        isRemoteUpdate: false,
+        save(pushCloud = true) {
+          this.state.updatedAt = Date.now();
+          try { localStorage.setItem(STORAGE_KEY, JSON.stringify(this.state)); } catch (e) {}
+          if (pushCloud && !this.isRemoteUpdate && typeof window.onLocalStateSaved === "function") {
+            window.onLocalStateSaved(this.state);
+          }
+        }
+      };
+
+      function showToast(msg) {
+        const t = document.getElementById("toast");
+        t.textContent = msg;
+        t.classList.add("show");
+        clearTimeout(window._toastTimer);
+        window._toastTimer = setTimeout(() => t.classList.remove("show"), 2500);
+      }
+      window.showToast = showToast;
+
+      function ensureDay(ds) {
+        if (!window.AppStore.state.days[ds]) {
+          window.AppStore.state.days[ds] = { "Desayuno": [], "Almuerzo": [], "Once / Colación": [], "Cena": [] };
+        }
+        return window.AppStore.state.days[ds];
+      }
+
+      function applyTheme(theme) {
+        const valid = ["citrus-dark", "volt-neon", "fire-cobalt", "sunset-runner"];
+        const chosen = valid.includes(theme) ? theme : "citrus-dark";
+        window.AppStore.state.theme = chosen;
+        document.documentElement.setAttribute("data-theme", chosen);
+        const sel = document.getElementById("themeSelect");
+        if (sel) sel.value = chosen;
+      }
+      window.applyTheme = applyTheme;
+
+      document.getElementById("themeSelect").addEventListener("change", (e) => {
+        applyTheme(e.target.value);
+        window.AppStore.save();
+        renderCharts();
+      });
+
+      document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+          document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+          btn.classList.add("active");
+          const target = document.getElementById(btn.dataset.tab);
+          if (target) target.classList.add("active");
+          if (btn.dataset.tab === "tab-graficos") renderCharts();
+          if (btn.dataset.tab === "tab-historial") renderHistoryTable();
+        });
+      });
+
+      function setActiveDate(ds) {
+        window.AppStore.activeDate = ds;
+        document.getElementById("activeDateInput").value = ds;
+        const [y, m, d] = ds.split("-").map(Number);
+        const dt = new Date(y, m - 1, d);
+        const label = dt.toLocaleDateString("es-CL", { weekday: "long", day: "numeric", month: "short", year: "numeric" });
+        document.getElementById("humanDateLabel").textContent = label.charAt(0).toUpperCase() + label.slice(1);
+        renderDailyView();
+      }
+      window.setActiveDate = setActiveDate;
+
+      function shiftDate(days) {
+        const [y, m, d] = window.AppStore.activeDate.split("-").map(Number);
+        const dt = new Date(y, m - 1, d + days);
+        setActiveDate(`${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, "0")}-${String(dt.getDate()).padStart(2, "0")}`);
+      }
+
+      document.getElementById("btnPrevDay").addEventListener("click", () => shiftDate(-1));
+      document.getElementById("btnNextDay").addEventListener("click", () => shiftDate(1));
+      document.getElementById("btnToday").addEventListener("click", () => setActiveDate(todayISO()));
+      document.getElementById("activeDateInput").addEventListener("change", (e) => { if (e.target.value) setActiveDate(e.target.value); });
+
+      document.getElementById("btnCopyDayMenu").addEventListener("click", () => {
+        window.AppStore.clipboardDay = JSON.parse(JSON.stringify(ensureDay(window.AppStore.activeDate)));
+        showToast("📋 Menú completo del día copiado");
+      });
+
+      document.getElementById("btnPasteDayMenu").addEventListener("click", () => {
+        if (!window.AppStore.clipboardDay) return showToast("⚠️ Primero copia un día");
+        const target = ensureDay(window.AppStore.activeDate);
+        MEAL_NAMES.forEach(m => target[m].push(...JSON.parse(JSON.stringify(window.AppStore.clipboardDay[m] || []))));
+        window.AppStore.save();
+        renderDailyView();
+        showToast("📥 Menú pegado");
+      });
+
+      function getDayTotals(ds) {
+        const day = ensureDay(ds);
+        const tot = { grams: 0, kcal: 0, prot: 0, fat: 0, carb: 0, vitA: 0, vitB: 0, vitC: 0, vitD: 0, vitE: 0, vitK: 0 };
+        MEAL_NAMES.forEach(m => {
+          (day[m] || []).forEach(it => {
+            tot.grams += Number(it.grams || 0);
+            tot.kcal += Number(it.kcal || 0);
+            tot.prot += Number(it.prot || 0);
+            tot.fat += Number(it.fat || 0);
+            tot.carb += Number(it.carb || 0);
+            VITAMIN_META.forEach(v => { tot[v.key] += Number(it[v.key] || 0); });
+          });
+        });
+        return tot;
+      }
+
+      function renderDailyView() {
+        const tot = getDayTotals(window.AppStore.activeDate);
+        const g = window.AppStore.state.goals;
+
+        const kcalDiff = g.kcal - tot.kcal;
+        const kcalPct = g.kcal > 0 ? Math.round((tot.kcal / g.kcal) * 100) : 0;
+        document.getElementById("heroConsumed").textContent = Math.round(tot.kcal).toLocaleString("es-CL");
+        document.getElementById("heroGoal").textContent = Math.round(g.kcal).toLocaleString("es-CL");
+        document.getElementById("heroPercent").textContent = `${kcalPct}%`;
+        document.getElementById("heroGrams").textContent = Math.round(tot.grams).toLocaleString("es-CL");
+
+        const fill = document.getElementById("heroBarFill");
+        fill.style.width = `${Math.min(100, kcalPct)}%`;
+        const box = document.getElementById("heroStatusBox");
+
+        if (kcalDiff >= 0) {
+          fill.classList.remove("over");
+          box.classList.remove("over");
+          document.getElementById("heroStatusText").textContent = `Te faltan ${Math.round(kcalDiff).toLocaleString("es-CL")} kcal para llegar a tu meta diaria.`;
+        } else {
+          fill.classList.add("over");
+          box.classList.add("over");
+          document.getElementById("heroStatusText").textContent = `Te sobran +${Math.abs(Math.round(kcalDiff)).toLocaleString("es-CL")} kcal por encima de tu meta diaria.`;
+        }
+
+        document.getElementById("heroMacroSummary").textContent = `P: ${tot.prot.toFixed(1)}g · G: ${tot.fat.toFixed(1)}g · C: ${tot.carb.toFixed(1)}g`;
+
+        updateMacroBar("prot", tot.prot, g.prot);
+        updateMacroBar("fat", tot.fat, g.fat);
+        updateMacroBar("carb", tot.carb, g.carb);
+
+        document.getElementById("vitaminsBarsGrid").innerHTML = VITAMIN_META.map(v => {
+          const val = tot[v.key];
+          const pct = Math.round((val / v.idr) * 100);
+          const diff = v.idr - val;
+          const st = diff >= 0 ? `Falta ${diff.toFixed(1)} ${v.unit}` : `Supera +${Math.abs(diff).toFixed(1)} ${v.unit}`;
+          return `
+            <div class="bar-card">
+              <div class="bar-head"><span style="color:var(--vit-color);">${v.label}</span><span><strong>${val.toFixed(1)}</strong> / ${v.idr}${v.unit}</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:${Math.min(100, pct)}%; background:var(--vit-color);"></div></div>
+              <div class="bar-foot"><span>${st}</span><span>${pct}%</span></div>
+            </div>
+          `;
+        }).join("");
+
+        renderMealsList();
+        renderSavedDatalist();
+      }
+      window.renderDailyView = renderDailyView;
+
+      function updateMacroBar(prefix, val, goal) {
+        const pct = goal > 0 ? Math.round((val / goal) * 100) : 0;
+        const diff = goal - val;
+        document.getElementById(`${prefix}Val`).textContent = val.toFixed(1);
+        document.getElementById(`${prefix}Goal`).textContent = Math.round(goal);
+        document.getElementById(`${prefix}Bar`).style.width = `${Math.min(100, pct)}%`;
+        document.getElementById(`${prefix}Pct`).textContent = `${pct}%`;
+        document.getElementById(`${prefix}Status`).textContent = diff >= 0 ? `Faltan ${diff.toFixed(1)} g` : `Sobran +${Math.abs(diff).toFixed(1)} g`;
+      }
+
+      function escapeHtml(str) {
+        return String(str).replace(/[&<>"']/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
+      }
+
+      function renderMealsList() {
+        const day = ensureDay(window.AppStore.activeDate);
+        document.getElementById("mealsContainer").innerHTML = MEAL_NAMES.map(meal => {
+          const items = day[meal] || [];
+          const mealKcal = items.reduce((s, x) => s + Number(x.kcal || 0), 0);
+          const mealProt = items.reduce((s, x) => s + Number(x.prot || 0), 0);
+
+          const rows = items.length === 0
+            ? `<div style="font-size:0.78rem; color:var(--text-muted); padding:8px 0;">Sin alimentos registrados.</div>`
+            : items.map((it, idx) => `
+              <div class="food-item">
+                <div class="food-top">
+                  <div>
+                    <div class="food-name">${escapeHtml(it.name)} <span style="color:var(--accent-2);">(${it.grams} g)</span></div>
+                    <div class="food-meta"><strong>${Math.round(it.kcal)} kcal</strong> · P: ${Number(it.prot).toFixed(1)}g · G: ${Number(it.fat).toFixed(1)}g · C: ${Number(it.carb).toFixed(1)}g</div>
+                  </div>
+                </div>
+                <div class="food-actions">
+                  <button class="btn btn-sm" type="button" onclick="openEditFood('${meal}', ${idx})">✏️ Editar g/datos</button>
+                  <button class="btn btn-sm" type="button" onclick="copySingleFood('${meal}', ${idx})">📋 Copiar</button>
+                  <button class="btn btn-sm btn-danger" type="button" onclick="deleteFood('${meal}', ${idx})">🗑️</button>
+                </div>
+              </div>
+            `).join("");
+
+          return `
+            <div class="meal-box">
+              <div class="meal-header">
+                <div>
+                  <div class="card-title" style="font-size:1.05rem;">${meal}</div>
+                  <div style="font-size:0.73rem; color:var(--text-muted); font-weight:600;">${Math.round(mealKcal)} kcal · ${mealProt.toFixed(1)}g prot</div>
+                </div>
+                <div style="display:flex; gap:4px;">
+                  <button class="btn btn-sm" type="button" onclick="copyMealBlock('${meal}')">📋 Copiar</button>
+                  <button class="btn btn-sm" type="button" onclick="pasteIntoMeal('${meal}')">📥 Pegar</button>
+                </div>
+              </div>
+              ${rows}
+            </div>
+          `;
+        }).join("");
+      }
+
+      window.deleteFood = (meal, idx) => {
+        ensureDay(window.AppStore.activeDate)[meal].splice(idx, 1);
+        window.AppStore.save();
+        renderDailyView();
+        showToast("🗑️ Eliminado");
+      };
+
+      window.copySingleFood = (meal, idx) => {
+        window.AppStore.clipboardFood = JSON.parse(JSON.stringify(ensureDay(window.AppStore.activeDate)[meal][idx]));
+        window.AppStore.clipboardMeal = null;
+        showToast("📋 Alimento copiado");
+      };
+
+      window.copyMealBlock = (meal) => {
+        window.AppStore.clipboardMeal = JSON.parse(JSON.stringify(ensureDay(window.AppStore.activeDate)[meal] || []));
+        window.AppStore.clipboardFood = null;
+        showToast(`📋 ${meal} copiado`);
+      };
+
+      window.pasteIntoMeal = (meal) => {
+        const target = ensureDay(window.AppStore.activeDate)[meal];
+        if (window.AppStore.clipboardFood) {
+          target.push(JSON.parse(JSON.stringify(window.AppStore.clipboardFood)));
+          window.AppStore.save();
+          renderDailyView();
+          showToast(`📥 Pegado en ${meal}`);
+        } else if (window.AppStore.clipboardMeal && window.AppStore.clipboardMeal.length) {
+          target.push(...JSON.parse(JSON.stringify(window.AppStore.clipboardMeal)));
+          window.AppStore.save();
+          renderDailyView();
+          showToast(`📥 ${window.AppStore.clipboardMeal.length} ítems pegados en ${meal}`);
+        } else {
+          showToast("⚠️ Nada copiado aún");
+        }
+      };
+
+      let editingSnapshot = null;
+      window.openEditFood = (meal, idx) => {
+        const it = ensureDay(window.AppStore.activeDate)[meal][idx];
+        editingSnapshot = JSON.parse(JSON.stringify(it));
+        document.getElementById("editMealKey").value = meal;
+        document.getElementById("editFoodIndex").value = idx;
+        document.getElementById("editName").value = it.name;
+        document.getElementById("editGrams").value = it.grams;
+        document.getElementById("editKcal").value = Math.round(it.kcal);
+        document.getElementById("editProt").value = it.prot;
+        document.getElementById("editFat").value = it.fat;
+        document.getElementById("editCarb").value = it.carb;
+        VITAMIN_META.forEach(v => {
+          document.getElementById("edit" + v.key.charAt(0).toUpperCase() + v.key.slice(1)).value = it[v.key] || 0;
+        });
+        document.getElementById("editFoodModal").classList.add("open");
+      };
+
+      document.getElementById("editGrams").addEventListener("input", (e) => {
+        const g = parseFloat(e.target.value);
+        if (!editingSnapshot || !g || g <= 0 || !editingSnapshot.grams) return;
+        const r = g / editingSnapshot.grams;
+        document.getElementById("editKcal").value = Math.round(editingSnapshot.kcal * r);
+        document.getElementById("editProt").value = (editingSnapshot.prot * r).toFixed(1);
+        document.getElementById("editFat").value = (editingSnapshot.fat * r).toFixed(1);
+        document.getElementById("editCarb").value = (editingSnapshot.carb * r).toFixed(1);
+        VITAMIN_META.forEach(v => {
+          document.getElementById("edit" + v.key.charAt(0).toUpperCase() + v.key.slice(1)).value = ((editingSnapshot[v.key] || 0) * r).toFixed(1);
+        });
+      });
+
+      document.getElementById("btnSaveEditedFood").addEventListener("click", () => {
+        const meal = document.getElementById("editMealKey").value;
+        const idx = Number(document.getElementById("editFoodIndex").value);
+        const updated = {
+          name: document.getElementById("editName").value.trim() || "Alimento",
+          grams: parseFloat(document.getElementById("editGrams").value) || 100,
+          kcal: parseFloat(document.getElementById("editKcal").value) || 0,
+          prot: parseFloat(document.getElementById("editProt").value) || 0,
+          fat: parseFloat(document.getElementById("editFat").value) || 0,
+          carb: parseFloat(document.getElementById("editCarb").value) || 0
+        };
+        VITAMIN_META.forEach(v => {
+          updated[v.key] = parseFloat(document.getElementById("edit" + v.key.charAt(0).toUpperCase() + v.key.slice(1)).value) || 0;
+        });
+        ensureDay(window.AppStore.activeDate)[meal][idx] = updated;
+        window.AppStore.save();
+        renderDailyView();
+        closeModal("editFoodModal");
+        showToast("✅ Cambios guardados");
+      });
+
+      window.closeModal = (id) => document.getElementById(id).classList.remove("open");
+
+      let selectedSaved = null;
+      function renderSavedDatalist() {
+        const list = window.AppStore.state.savedFoods;
+        document.getElementById("savedCount").textContent = list.length;
+        document.getElementById("savedFoodsDatalist").innerHTML = list.map(f => `<option value="${escapeHtml(f.name)}"></option>`).join("");
+      }
+
+      function fillFormFromBase100(base, grams) {
+        const f = grams / 100;
+        document.getElementById("foodProt").value = (base.prot100 * f).toFixed(1);
+        document.getElementById("foodFat").value = (base.fat100 * f).toFixed(1);
+        document.getElementById("foodCarb").value = (base.carb100 * f).toFixed(1);
+        document.getElementById("foodKcal").value = Math.round(base.kcal100 * f);
+        VITAMIN_META.forEach(v => {
+          document.getElementById(v.key).value = ((base[v.key + "100"] || 0) * f).toFixed(1);
+        });
+      }
+
+      document.getElementById("foodName").addEventListener("input", (e) => {
+        const val = e.target.value.trim().toLowerCase();
+        const found = window.AppStore.state.savedFoods.find(f => f.name.toLowerCase() === val);
+        selectedSaved = found || null;
+        if (found) {
+          const g = parseFloat(document.getElementById("foodGrams").value) || 100;
+          document.getElementById("foodGrams").value = g;
+          fillFormFromBase100(found, g);
+        }
+      });
+
+      document.getElementById("foodGrams").addEventListener("input", (e) => {
+        const g = parseFloat(e.target.value);
+        if (selectedSaved && g > 0) fillFormFromBase100(selectedSaved, g);
+      });
+
+      document.getElementById("addFoodForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const meal = document.getElementById("foodMeal").value;
+        const name = document.getElementById("foodName").value.trim();
+        const grams = parseFloat(document.getElementById("foodGrams").value) || 100;
+        const prot = parseFloat(document.getElementById("foodProt").value) || 0;
+        const fat = parseFloat(document.getElementById("foodFat").value) || 0;
+        const carb = parseFloat(document.getElementById("foodCarb").value) || 0;
+        const rawKcal = parseFloat(document.getElementById("foodKcal").value);
+        const kcal = !isNaN(rawKcal) && rawKcal > 0 ? rawKcal : Math.round(prot * 4 + fat * 9 + carb * 4);
+
+        const entry = { name, grams, prot, fat, carb, kcal };
+        VITAMIN_META.forEach(v => { entry[v.key] = parseFloat(document.getElementById(v.key).value) || 0; });
+
+        ensureDay(window.AppStore.activeDate)[meal].push(entry);
+
+        if (document.getElementById("saveToLibraryCheck").checked && grams > 0) {
+          const r = 100 / grams;
+          const baseObj = { name, prot100: +(prot * r).toFixed(2), fat100: +(fat * r).toFixed(2), carb100: +(carb * r).toFixed(2), kcal100: +(kcal * r).toFixed(1) };
+          VITAMIN_META.forEach(v => { baseObj[v.key + "100"] = +((entry[v.key] || 0) * r).toFixed(2); });
+          const idx = window.AppStore.state.savedFoods.findIndex(x => x.name.toLowerCase() === name.toLowerCase());
+          if (idx >= 0) window.AppStore.state.savedFoods[idx] = baseObj;
+          else window.AppStore.state.savedFoods.push(baseObj);
+        }
+
+        window.AppStore.save();
+        renderDailyView();
+        e.target.reset();
+        document.getElementById("foodMeal").value = meal;
+        document.getElementById("saveToLibraryCheck").checked = true;
+        selectedSaved = null;
+        showToast(`✅ ${name} agregado`);
+      });
+
+      document.querySelectorAll("[data-quick]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const p = QUICK_PRESETS[btn.dataset.quick];
+          if (!p) return;
+          const meal = document.getElementById("foodMeal").value;
+          ensureDay(window.AppStore.activeDate)[meal].push(JSON.parse(JSON.stringify(p)));
+          window.AppStore.save();
+          renderDailyView();
+          showToast("⚡ Agregado");
+        });
+      });
+
+      document.getElementById("btnManageSaved").addEventListener("click", () => {
+        const list = window.AppStore.state.savedFoods;
+        document.getElementById("savedFoodsList").innerHTML = list.length === 0
+          ? `<p style="font-size:0.82rem; color:var(--text-muted);">Sin productos guardados.</p>`
+          : list.map((f, i) => `
+            <div class="food-item" style="flex-direction:row; justify-content:space-between; align-items:center;">
+              <div>
+                <div class="food-name">${escapeHtml(f.name)}</div>
+                <div class="food-meta">100g: ${Math.round(f.kcal100)} kcal · P:${f.prot100}g · G:${f.fat100}g · C:${f.carb100}g</div>
+              </div>
+              <button class="btn btn-sm btn-danger" type="button" onclick="removeSavedFood(${i})">🗑️</button>
+            </div>
+          `).join("");
+        document.getElementById("savedFoodsModal").classList.add("open");
+      });
+
+      window.removeSavedFood = (i) => {
+        window.AppStore.state.savedFoods.splice(i, 1);
+        window.AppStore.save();
+        renderSavedDatalist();
+        document.getElementById("btnManageSaved").click();
+      };
+
+      function recalcFitGoals() {
+        const sex = document.getElementById("calcSex").value;
+        const age = parseFloat(document.getElementById("calcAge").value) || 39;
+        const weight = parseFloat(document.getElementById("calcWeight").value) || 80;
+        const height = parseFloat(document.getElementById("calcHeight").value) || 179;
+        const act = parseFloat(document.getElementById("calcActivity").value) || 1.4;
+        const goal = document.getElementById("calcGoal").value;
+        const protKg = parseFloat(document.getElementById("calcProtKg").value) || 1.8;
+        const fatKg = parseFloat(document.getElementById("calcFatKg").value) || 0.9;
+
+        const tmb = 10 * weight + 6.25 * height - 5 * age + (sex === "male" ? 5 : -161);
+        let kcal = tmb * act;
+        if (goal === "cut") kcal *= 0.82;
+        if (goal === "bulk") kcal *= 1.12;
+        kcal = Math.round(kcal);
+        const prot = Math.round(weight * protKg);
+        const fat = Math.round(weight * fatKg);
+        const carb = Math.max(0, Math.round((kcal - (prot * 4 + fat * 9)) / 4));
+
+        document.getElementById("calcResultText").textContent = `${kcal.toLocaleString("es-CL")} kcal · ${prot}g P · ${fat}g G · ${carb}g C`;
+        return { kcal, prot, fat, carb };
+      }
+
+      ["calcSex", "calcAge", "calcWeight", "calcHeight", "calcActivity", "calcGoal", "calcProtKg", "calcFatKg"].forEach(id => {
+        document.getElementById(id).addEventListener("input", recalcFitGoals);
+      });
+
+      document.getElementById("btnPresetUser").addEventListener("click", () => {
+        document.getElementById("calcSex").value = "male";
+        document.getElementById("calcAge").value = 39;
+        document.getElementById("calcWeight").value = 80;
+        document.getElementById("calcHeight").value = 179;
+        document.getElementById("calcActivity").value = "1.4";
+        document.getElementById("calcGoal").value = "maintain";
+        document.getElementById("calcProtKg").value = 1.8;
+        document.getElementById("calcFatKg").value = 0.9;
+        recalcFitGoals();
+      });
+
+      function syncManualInputs() {
+        const g = window.AppStore.state.goals;
+        document.getElementById("manualKcal").value = g.kcal;
+        document.getElementById("manualProt").value = g.prot;
+        document.getElementById("manualFat").value = g.fat;
+        document.getElementById("manualCarb").value = g.carb;
+      }
+      window.syncManualInputs = syncManualInputs;
+
+      document.getElementById("btnApplyGoals").addEventListener("click", () => {
+        window.AppStore.state.goals = recalcFitGoals();
+        syncManualInputs();
+        window.AppStore.save();
+        renderDailyView();
+        showToast("🎯 Metas aplicadas");
+      });
+
+      document.getElementById("btnSaveManualGoals").addEventListener("click", () => {
+        window.AppStore.state.goals = {
+          kcal: parseInt(document.getElementById("manualKcal").value) || 2420,
+          prot: parseInt(document.getElementById("manualProt").value) || 144,
+          fat: parseInt(document.getElementById("manualFat").value) || 72,
+          carb: parseInt(document.getElementById("manualCarb").value) || 299
+        };
+        window.AppStore.save();
+        renderDailyView();
+        showToast("💾 Metas guardadas");
+      });
+
+      function renderCharts() {
+        if (typeof Chart === "undefined") return;
+        const tot = getDayTotals(window.AppStore.activeDate);
+        const g = window.AppStore.state.goals;
+        document.getElementById("chartDateBadge").textContent = window.AppStore.activeDate;
+
+        const cs = getComputedStyle(document.documentElement);
+        const accent = cs.getPropertyValue("--accent").trim();
+        const accent2 = cs.getPropertyValue("--accent-2").trim();
+        const muted = cs.getPropertyValue("--text-muted").trim();
+
+        if (window.AppStore.charts.macros) window.AppStore.charts.macros.destroy();
+        window.AppStore.charts.macros = new Chart(document.getElementById("chartMacros"), {
+          type: "bar",
+          data: {
+            labels: ["Calorías (x10 kcal)", "Proteínas (g)", "Grasas (g)", "Carbohidratos (g)"],
+            datasets: [
+              { label: "Consumido", data: [+(tot.kcal / 10).toFixed(1), +tot.prot.toFixed(1), +tot.fat.toFixed(1), +tot.carb.toFixed(1)], backgroundColor: accent },
+              { label: "Meta", data: [+(g.kcal / 10).toFixed(1), g.prot, g.fat, g.carb], backgroundColor: "rgba(148,163,184,0.35)" }
+            ]
+          },
+          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: muted } } }, scales: { x: { ticks: { color: muted } }, y: { ticks: { color: muted } } } }
+        });
+
+        if (window.AppStore.charts.vitamins) window.AppStore.charts.vitamins.destroy();
+        window.AppStore.charts.vitamins = new Chart(document.getElementById("chartVitamins"), {
+          type: "bar",
+          data: {
+            labels: VITAMIN_META.map(v => v.label),
+            datasets: [{ label: "% IDR Cubierta", data: VITAMIN_META.map(v => Math.round((tot[v.key] / v.idr) * 100)), backgroundColor: accent2 }]
+          },
+          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: muted } } }, scales: { x: { ticks: { color: muted } }, y: { beginAtZero: true, suggestedMax: 100, ticks: { color: muted } } } }
+        });
+
+        const dates10 = [];
+        const [y, m, d] = window.AppStore.activeDate.split("-").map(Number);
+        for (let i = 9; i >= 0; i--) {
+          const dt = new Date(y, m - 1, d - i);
+          dates10.push(`${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, "0")}-${String(dt.getDate()).padStart(2, "0")}`);
+        }
+
+        if (window.AppStore.charts.history) window.AppStore.charts.history.destroy();
+        window.AppStore.charts.history = new Chart(document.getElementById("chartHistory"), {
+          type: "line",
+          data: {
+            labels: dates10.map(ds => ds.slice(5)),
+            datasets: [
+              { label: "Calorías", data: dates10.map(ds => Math.round(getDayTotals(ds).kcal)), borderColor: accent, backgroundColor: accent, tension: 0.25 },
+              { label: "Meta", data: dates10.map(() => g.kcal), borderColor: accent2, borderDash: [6, 6], pointRadius: 0 }
+            ]
+          },
+          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { labels: { color: muted } } }, scales: { x: { ticks: { color: muted } }, y: { beginAtZero: true, ticks: { color: muted } } } }
+        });
+      }
+
+      function renderHistoryTable() {
+        const tbody = document.getElementById("historyTableBody");
+        const dates = Object.keys(window.AppStore.state.days).sort().reverse();
+        if (!dates.length) {
+          tbody.innerHTML = `<tr><td colspan="6" style="color:var(--text-muted);">Sin días registrados.</td></tr>`;
+          return;
+        }
+        tbody.innerHTML = dates.map(ds => {
+          const t = getDayTotals(ds);
+          const diff = window.AppStore.state.goals.kcal - t.kcal;
+          const b = diff >= 0 ? `Faltaron ${Math.round(diff)} kcal` : `Sobran +${Math.abs(Math.round(diff))} kcal`;
+          return `
+            <tr>
+              <td><strong>${ds}</strong></td>
+              <td>${Math.round(t.kcal)} kcal</td>
+              <td>${window.AppStore.state.goals.kcal} kcal</td>
+              <td style="color:${diff >= 0 ? "var(--accent-2)" : "var(--over-color)"}; font-weight:700;">${b}</td>
+              <td>${t.prot.toFixed(0)}g / ${t.fat.toFixed(0)}g / ${t.carb.toFixed(0)}g</td>
+              <td><button class="btn btn-sm" type="button" onclick="jumpToDate('${ds}')">Ver</button></td>
+            </tr>
+          `;
+        }).join("");
+      }
+      window.renderHistoryTable = renderHistoryTable;
+
+      window.jumpToDate = (ds) => {
+        setActiveDate(ds);
+        document.querySelector('[data-tab="tab-diario"]').click();
+      };
+
+      document.getElementById("btnExportJson").addEventListener("click", () => {
+        const blob = new Blob([JSON.stringify(window.AppStore.state, null, 2)], { type: "application/json" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = `nutricontrol_${todayISO()}.json`;
+        a.click();
+      });
+
+      document.getElementById("btnImportJson").addEventListener("click", () => document.getElementById("importFileInput").click());
+      document.getElementById("importFileInput").addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const r = new FileReader();
+        r.onload = () => {
+          try {
+            const imp = JSON.parse(r.result);
+            if (imp && imp.goals && imp.days) {
+              window.AppStore.state = imp;
+              applyTheme(imp.theme || "citrus-dark");
+              syncManualInputs();
+              window.AppStore.save();
+              renderDailyView();
+              renderHistoryTable();
+              showToast("✅ Respaldo restaurado");
+            }
+          } catch (err) { showToast("❌ JSON inválido"); }
+        };
+        r.readAsText(file);
+      });
+
+      document.getElementById("btnExportCsv").addEventListener("click", () => {
+        const rows = [["Fecha", "Comida", "Alimento", "Gramos", "Kcal", "Proteinas_g", "Grasas_g", "Carbohidratos_g"]];
+        Object.keys(window.AppStore.state.days).sort().forEach(ds => {
+          MEAL_NAMES.forEach(m => {
+            (window.AppStore.state.days[ds][m] || []).forEach(it => {
+              rows.push([ds, m, `"${String(it.name).replace(/"/g, '""')}"`, it.grams, it.kcal, it.prot, it.fat, it.carb]);
+            });
+          });
+        });
+        const blob = new Blob([rows.map(r => r.join(",")).join("\n")], { type: "text/csv;charset=utf-8;" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = `nutricontrol_${todayISO()}.csv`;
+        a.click();
+      });
+
+      // Inicialización inmediata de la app
+      applyTheme(window.AppStore.state.theme);
+      syncManualInputs();
+      recalcFitGoals();
+      setActiveDate(window.AppStore.activeDate);
+
+      let deferredPrompt = null;
+      window.addEventListener("beforeinstallprompt", (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        const b = document.getElementById("btnInstallPwa");
+        b.style.display = "inline-flex";
+        b.onclick = async () => { deferredPrompt.prompt(); await deferredPrompt.userChoice; b.style.display = "none"; };
+      });
+    })();
+  </script>
+
+  <!-- ======================================================================
+       MÓDULO FIREBASE OPCIONAL / ENVOLVENTE (NO BLOQUEA LA UI SI FALLA)
+       ====================================================================== -->
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { initializeApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
     import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
     import { getFirestore, doc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-    /* ========================================================================
-       PEGAR AQUÍ TU FIREBASE CONFIG SI QUIERES DEJARLO FIJO EN GITHUB/VERCEL:
-       ======================================================================== */
-    const HARDCODED_FIREBASE_CONFIG = null;
-    /* Ejemplo:
-    const HARDCODED_FIREBASE_CONFIG = {
-      apiKey: "TU_API_KEY",
-      authDomain: "tu-proyecto.firebaseapp.com",
-      projectId: "tu-proyecto",
-      storageBucket: "tu-proyecto.firebasestorage.app",
-      messagingSenderId: "123456789",
-      appId: "1:123456789:web:abcdef"
-    };
-    */
+    const FB_CFG_KEY = "nutricontrol_firebase_cfg_v1";
+    let auth = null, db = null, currentUser = null, unsubDoc = null;
 
-    const STORAGE_KEY = "nutricontrol_fit_v4";
-    const FB_CFG_KEY = "nutricontrol_firebase_cfg";
-
-    const VITAMIN_META = [
-      { key: "vitA", label: "Vitamina A", unit: "mcg", idr: 900 },
-      { key: "vitB", label: "Complejo B", unit: "%", idr: 100 },
-      { key: "vitC", label: "Vitamina C", unit: "mg", idr: 90 },
-      { key: "vitD", label: "Vitamina D", unit: "mcg", idr: 15 },
-      { key: "vitE", label: "Vitamina E", unit: "mg", idr: 15 },
-      { key: "vitK", label: "Vitamina K", unit: "mcg", idr: 120 }
-    ];
-
-    const MEAL_NAMES = ["Desayuno", "Almuerzo", "Once / Colación", "Cena"];
-
-    const QUICK_PRESETS = {
-      "almuerzo-cerdo": {
-        name: "Almuerzo Cerdo 450g + Almendras 100g + Papa + Huevo + Verduras",
-        grams: 849, prot: 131.8, fat: 125.0, carb: 53.4, kcal: 1854,
-        vitA: 245, vitB: 165, vitC: 54, vitD: 2.1, vitE: 26.2, vitK: 78
-      },
-      "huevos-revueltos": {
-        name: "3 Huevos revueltos + 2 rebanadas pan integral",
-        grams: 220, prot: 25.5, fat: 16.5, carb: 32.0, kcal: 379,
-        vitA: 240, vitB: 45, vitC: 0, vitD: 3.3, vitE: 1.8, vitK: 2
-      },
-      "pollo-arroz": {
-        name: "Pechuga pollo 200g + Arroz cocido 150g + Palta 50g",
-        grams: 400, prot: 51.0, fat: 11.5, carb: 46.0, kcal: 492,
-        vitA: 22, vitB: 68, vitC: 5, vitD: 0.2, vitE: 1.4, vitK: 11
-      },
-      "batido-avena": {
-        name: "Proteína Whey 30g + Avena 60g + Plátano 100g",
-        grams: 190, prot: 32.5, fat: 6.2, carb: 62.0, kcal: 434,
-        vitA: 4, vitB: 35, vitC: 9, vitD: 0, vitE: 0.6, vitK: 1
-      }
-    };
-
-    function todayISO() {
-      const d = new Date();
-      const offset = d.getTimezoneOffset();
-      return new Date(d.getTime() - offset * 60000).toISOString().split("T")[0];
-    }
-
-    let state = loadState();
-    let activeDate = todayISO();
-    let clipboardFood = null;
-    let clipboardMeal = null;
-    let clipboardDay = null;
-    let charts = {};
-
-    // Firebase state
-    let fbAuth = null;
-    let fbDb = null;
-    let fbUser = null;
-    let fbUnsub = null;
-    let isRemoteUpdate = false;
-
-    function loadState() {
+    function getConfig() {
       try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        if (raw) {
-          const parsed = JSON.parse(raw);
-          return {
-            theme: parsed.theme || "citrus-dark",
-            goals: parsed.goals || { kcal: 2420, prot: 144, fat: 72, carb: 299 },
-            days: parsed.days || {},
-            savedFoods: parsed.savedFoods || [],
-            updatedAt: parsed.updatedAt || 0
-          };
+        const raw = localStorage.getItem(FB_CFG_KEY);
+        return raw ? JSON.parse(raw) : null;
+      } catch (e) { return null; }
+    }
+
+    function parseLooseConfig(rawText) {
+      try { return JSON.parse(rawText); } catch (e) {
+        const cleaned = rawText
+          .replace(/(const|let|var)\s+\w+\s*=\s*/, "")
+          .replace(/;\s*$/, "")
+          .replace(/([{,]\s*)([a-zA-Z0-9_]+)\s*:/g, '$1"$2":')
+          .replace(/'/g, '"');
+        return JSON.parse(cleaned);
+      }
+    }
+
+    function bindCloud(uid) {
+      if (unsubDoc) unsubDoc();
+      const ref = doc(db, "users", uid, "nutricontrol", "state");
+      unsubDoc = onSnapshot(ref, (snap) => {
+        if (!snap.exists()) {
+          window.onLocalStateSaved?.(window.AppStore.state);
+          return;
         }
-      } catch (e) {}
-      return {
-        theme: "citrus-dark",
-        goals: { kcal: 2420, prot: 144, fat: 72, carb: 299 },
-        days: {},
-        savedFoods: [],
-        updatedAt: Date.now()
-      };
-    }
-
-    function saveState(pushCloud = true) {
-      state.updatedAt = Date.now();
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-      if (pushCloud && fbUser && fbDb && !isRemoteUpdate) {
-        syncToCloud();
-      }
-    }
-
-    function showToast(msg) {
-      const t = document.getElementById("toast");
-      t.textContent = msg;
-      t.classList.add("show");
-      clearTimeout(window._toastTimer);
-      window._toastTimer = setTimeout(() => t.classList.remove("show"), 2600);
-    }
-
-    function ensureDay(dateStr) {
-      if (!state.days[dateStr]) {
-        state.days[dateStr] = {
-          "Desayuno": [],
-          "Almuerzo": [],
-          "Once / Colación": [],
-          "Cena": []
-        };
-      }
-      return state.days[dateStr];
-    }
-
-    /* ========================================================================
-       TEMA MODO FIT
-       ======================================================================== */
-    function applyTheme(theme) {
-      state.theme = theme;
-      document.documentElement.setAttribute("data-theme", theme);
-      document.getElementById("themeSelect").value = theme;
-    }
-
-    document.getElementById("themeSelect").addEventListener("change", (e) => {
-      applyTheme(e.target.value);
-      saveState();
-      renderCharts();
-    });
-
-    /* ========================================================================
-       NAVEGACIÓN TABS Y FECHAS
-       ======================================================================== */
-    document.querySelectorAll(".tab-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-        document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
-        btn.classList.add("active");
-        document.getElementById(btn.dataset.tab).classList.add("active");
-        if (btn.dataset.tab === "tab-graficos") renderCharts();
-        if (btn.dataset.tab === "tab-historial") renderHistoryTable();
+        const remote = snap.data();
+        if ((remote.updatedAt || 0) > (window.AppStore.state.updatedAt || 0)) {
+          window.AppStore.isRemoteUpdate = true;
+          window.AppStore.state = {
+            theme: remote.theme || window.AppStore.state.theme,
+            goals: remote.goals || window.AppStore.state.goals,
+            days: remote.days || {},
+            savedFoods: remote.savedFoods || [],
+            updatedAt: remote.updatedAt
+          };
+          window.AppStore.save(false);
+          window.applyTheme?.(window.AppStore.state.theme);
+          window.syncManualInputs?.();
+          window.renderDailyView?.();
+          window.AppStore.isRemoteUpdate = false;
+          window.showToast?.("☁️ Sincronizado desde la nube");
+        }
       });
-    });
-
-    function setActiveDate(dateStr) {
-      activeDate = dateStr;
-      document.getElementById("activeDateInput").value = activeDate;
-      const [y, m, d] = activeDate.split("-").map(Number);
-      const dt = new Date(y, m - 1, d);
-      const label = dt.toLocaleDateString("es-CL", { weekday: "long", day: "numeric", month: "short", year: "numeric" });
-      document.getElementById("humanDateLabel").textContent = label.charAt(0).toUpperCase() + label.slice(1);
-      renderDailyView();
     }
 
-    function shiftDate(days) {
-      const [y, m, d] = activeDate.split("-").map(Number);
-      const dt = new Date(y, m - 1, d + days);
-      const iso = `${dt.getFullYear()}-${String(dt.getMonth() + 1).padStart(2, "0")}-${String(dt.getDate()).padStart(2, "0")}`;
-      setActiveDate(iso);
-    }
-
-    document.getElementById("btnPrevDay").addEventListener("click", () => shiftDate(-1));
-    document.getElementById("btnNextDay").addEventListener("click", () => shiftDate(1));
-    document.getElementById("btnToday").addEventListener("click", () => setActiveDate(todayISO()));
-    document.getElementById("activeDateInput").addEventListener("change", (e) => {
-      if (e.target.value) setActiveDate(e.target.value);
-    });
-
-    /* ========================================================================
-       COPIAR / PEGAR DÍA COMPLETO
-       ======================================================================== */
-    document.getElementById("btnCopyDayMenu").addEventListener("click", () => {
-      clipboardDay = JSON.parse(JSON.stringify(ensureDay(activeDate)));
-      showToast("📋 Menú completo del día copiado");
-    });
-
-    document.getElementById("btnPasteDayMenu").addEventListener("click", () => {
-      if (!clipboardDay) return showToast("⚠️ Primero copia un día");
-      const target = ensureDay(activeDate);
-      MEAL_NAMES.forEach(m => {
-        target[m].push(...JSON.parse(JSON.stringify(clipboardDay[m] || [])));
-      });
-      saveState();
-      renderDailyView();
-      showToast("📥 Menú pegado en " + activeDate);
-    });
-
-    /* ========================================================================
-       CÁLCULO DE TOTALES DEL DÍA Y RENDERIZADO DE BARRAS
-       ======================================================================== */
-    function getDayTotals(dateStr) {
-      const day = ensureDay(dateStr);
-      const tot = { grams: 0, kcal: 0, prot: 0, fat: 0, carb: 0, vitA: 0, vitB: 0, vitC: 0, vitD: 0, vitE: 0, vitK: 0 };
-      MEAL_NAMES.forEach(m => {
-        (day[m] || []).forEach(item => {
-          tot.grams += Number(item.grams || 0);
-          tot.kcal += Number(item.kcal || 0);
-          tot.prot += Number(item.prot || 0);
-          tot.fat += Number(item.fat || 0);
-          tot.carb += Number(item.carb || 0);
-          VITAMIN_META.forEach(v => { tot[v.key] += Number(item[v.key] || 0); });
-        });
-      });
-      return tot;
-    }
-
-    function renderDailyView() {
-      const tot = getDayTotals(activeDate);
-      const g = state.goals;
-
-      // Barra Principal de Calorías
-      const kcalDiff = g.kcal - tot.kcal;
-      const kcalPct = g.kcal > 0 ? Math.round((tot.kcal / g.kcal) * 100) : 0;
-      document.getElementById("heroConsumed").textContent = Math.round(tot.kcal).toLocaleString("es-CL");
-      document.getElementById("heroGoal").textContent = Math.round(g.kcal).toLocaleString("es-CL");
-      document.getElementById("heroPercent").textContent = `${kcalPct}%`;
-      document.getElementById("heroGrams").textContent = Math.round(tot.grams).toLocaleString("es-CL");
-
-      const fill = document.getElementById("heroBarFill");
-      fill.style.width = `${Math.min(100, kcalPct)}%`;
-      const statusBox = document.getElementById("heroStatusBox");
-
-      if (kcalDiff >= 0) {
-        fill.classList.remove("over");
-        statusBox.classList.remove("over");
-        document.getElementById("heroStatusText").textContent = `Te faltan ${Math.round(kcalDiff).toLocaleString("es-CL")} kcal para llegar a tu meta diaria.`;
-      } else {
-        fill.classList.add("over");
-        statusBox.classList.add("over");
-        document.getElementById("heroStatusText").textContent = `Te sobran +${Math.abs(Math.round(kcalDiff)).toLocaleString("es-CL")} kcal por encima de tu meta diaria.`;
-      }
-
-      document.getElementById("heroMacroSummary").textContent =
-        `P: ${tot.prot.toFixed(1)}g · G: ${tot.fat.toFixed(1)}g · C: ${tot.carb.toFixed(1)}g`;
-
-      // Macros individuales
-      updateMacroBar("prot", tot.prot, g.prot);
-      updateMacroBar("fat", tot.fat, g.fat);
-      updateMacroBar("carb", tot.carb, g.carb);
-
-      // Vitaminas A-K
-      const vitGrid = document.getElementById("vitaminsBarsGrid");
-      vitGrid.innerHTML = VITAMIN_META.map(v => {
-        const val = tot[v.key];
-        const pct = Math.round((val / v.idr) * 100);
-        const diff = v.idr - val;
-        const statusTxt = diff >= 0 ? `Falta ${diff.toFixed(1)} ${v.unit}` : `Supera +${Math.abs(diff).toFixed(1)} ${v.unit}`;
-        return `
-          <div class="bar-card">
-            <div class="bar-head">
-              <span style="color:var(--vit-color);">${v.label}</span>
-              <span><strong>${val.toFixed(1)}</strong> / ${v.idr}${v.unit}</span>
-            </div>
-            <div class="bar-track">
-              <div class="bar-fill" style="width:${Math.min(100, pct)}%; background:var(--vit-color);"></div>
-            </div>
-            <div class="bar-foot"><span>${statusTxt}</span><span>${pct}%</span></div>
-          </div>
-        `;
-      }).join("");
-
-      renderMealsList();
-      renderSavedDatalist();
-    }
-
-    function updateMacroBar(prefix, val, goal) {
-      const pct = goal > 0 ? Math.round((val / goal) * 100) : 0;
-      const diff = goal - val;
-      document.getElementById(`${prefix}Val`).textContent = val.toFixed(1);
-      document.getElementById(`${prefix}Goal`).textContent = Math.round(goal);
-      document.getElementById(`${prefix}Bar`).style.width = `${Math.min(100, pct)}%`;
-      document.getElementById(`${prefix}Pct`).textContent = `${pct}%`;
-      document.getElementById(`${prefix}Status`).textContent =
-        diff >= 0 ? `Faltan ${diff.toFixed(1)} g` : `Sobran +${Math.abs(diff).toFixed(1)} g`;
-    }
-
-    /* ========================================================================
-       RENDERIZADO DE COMIDAS + EDITAR GRAMOS + COPIAR/PEGAR INDIVIDUAL Y BLOQUE
-       ======================================================================== */
-    function renderMealsList() {
-      const day = ensureDay(activeDate);
-      const container = document.getElementById("mealsContainer");
-
-      container.innerHTML = MEAL_NAMES.map(meal => {
-        const items = day[meal] || [];
-        const mealKcal = items.reduce((s, x) => s + Number(x.kcal || 0), 0);
-        const mealProt = items.reduce((s, x) => s + Number(x.prot || 0), 0);
-
-        const rowsHtml = items.length === 0
-          ? `<div style="font-size:0.78rem; color:var(--text-muted); padding:8px 0;">Sin alimentos registrados.</div>`
-          : items.map((item, idx) => `
-            <div class="food-item">
-              <div class="food-top">
-                <div>
-                  <div class="food-name">${escapeHtml(item.name)} <span style="color:var(--accent-2);">(${item.grams} g)</span></div>
-                  <div class="food-meta">
-                    <strong>${Math.round(item.kcal)} kcal</strong> · P: ${Number(item.prot).toFixed(1)}g · G: ${Number(item.fat).toFixed(1)}g · C: ${Number(item.carb).toFixed(1)}g
-                  </div>
-                </div>
-              </div>
-              <div class="food-actions">
-                <button class="btn btn-sm" onclick="openEditFood('${meal}', ${idx})">✏️ Editar g/datos</button>
-                <button class="btn btn-sm" onclick="copySingleFood('${meal}', ${idx})">📋 Copiar</button>
-                <button class="btn btn-sm btn-danger" onclick="deleteFood('${meal}', ${idx})">🗑️</button>
-              </div>
-            </div>
-          `).join("");
-
-        return `
-          <div class="meal-box">
-            <div class="meal-header">
-              <div>
-                <div class="card-title" style="font-size:1.05rem;">${meal}</div>
-                <div style="font-size:0.73rem; color:var(--text-muted); font-weight:600;">
-                  ${Math.round(mealKcal)} kcal · ${mealProt.toFixed(1)}g prot
-                </div>
-              </div>
-              <div style="display:flex; gap:4px; flex-wrap:wrap;">
-                <button class="btn btn-sm" onclick="copyMealBlock('${meal}')" title="Copiar toda esta comida">📋 Copiar</button>
-                <button class="btn btn-sm" onclick="pasteIntoMeal('${meal}')" title="Pegar alimento o comida aquí">📥 Pegar</button>
-              </div>
-            </div>
-            ${rowsHtml}
-          </div>
-        `;
-      }).join("");
-    }
-
-    function escapeHtml(str) {
-      return String(str).replace(/[&<>"']/g, m => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
-    }
-
-    window.deleteFood = (meal, idx) => {
-      ensureDay(activeDate)[meal].splice(idx, 1);
-      saveState();
-      renderDailyView();
-      showToast("🗑️ Alimento eliminado");
+    window.onLocalStateSaved = async (st) => {
+      if (!currentUser || !db) return;
+      try {
+        await setDoc(doc(db, "users", currentUser.uid, "nutricontrol", "state"), st, { merge: true });
+      } catch (e) { console.error(e); }
     };
 
-    window.copySingleFood = (meal, idx) => {
-      clipboardFood = JSON.parse(JSON.stringify(ensureDay(activeDate
+    function initCloud() {
+      const cfg = getConfig();
+      if (!cfg || !cfg.apiKey) return false;
+      try {
+        const app = getApps().length ? getApps()[0] : initializeApp(cfg);
+        auth = getAuth(app);
+        db = getFirestore(app);
+        onAuthStateChanged(auth, (u) => {
+          currentUser = u;
+          const dot = document.getElementById("syncDot");
+          const txt = document.getElementById("syncText");
+          const btn = document.getElementById("btnFirebaseAuth");
+          if (u) {
+            dot.classList.add("online");
+            txt.textContent = u.email ? u.email.split("@")[0] : "Nube activa";
+            btn.textContent = "Cerrar sesión";
+            bindCloud(u.uid);
+            window.onLocalStateSaved?.(window.AppStore.state);
+          } else {
+            dot.classList.remove("online");
+            txt.textContent = "Modo local";
+            btn.textContent = "☁️ Conectar Google";
+            if (unsubDoc) unsubDoc();
+          }
+        });
+        return true;
+      } catch (e) {
+        console.error(e);
+        return false;
+      }
+    }
+
+    async function signInGoogle() {
+      if (!auth && !initCloud()) {
+        document.getElementById("firebaseModal").classList.add("open");
+        return;
+      }
+      const provider = new GoogleAuthProvider();
+      try { await signInWithPopup(auth, provider); } catch (e) { await signInWithRedirect(auth, provider); }
+    }
+
+    document.getElementById("btnFirebaseAuth").addEventListener("click", () => {
+      if (currentUser && auth) signOut(auth);
+      else signInGoogle();
+    });
+
+    document.getElementById("btnConfigFirebase").addEventListener("click", () => {
+      const ex = getConfig();
+      if (ex) document.getElementById("firebaseConfigInput").value = JSON.stringify(ex, null, 2);
+      document.getElementById("firebaseModal").classList.add("open");
+    });
+
+    document.getElementById("btnSaveFirebaseConfig").addEventListener("click", () => {
+      try {
+        const cfg = parseLooseConfig(document.getElementById("firebaseConfigInput").value);
+        if (!cfg.apiKey || !cfg.projectId) throw new Error("Incompleto");
+        localStorage.setItem(FB_CFG_KEY, JSON.stringify(cfg));
+        closeModal("firebaseModal");
+        initCloud();
+        signInGoogle();
+      } catch (e) {
+        window.showToast?.("❌ Config inválida");
+      }
+    });
+
+    document.getElementById("btnClearFirebaseConfig").addEventListener("click", () => {
+      localStorage.removeItem(FB_CFG_KEY);
+      closeModal("firebaseModal");
+      window.showToast?.("Configuración borrada");
+    });
+
+    initCloud();
+  </script>
+</body>
+</html>
